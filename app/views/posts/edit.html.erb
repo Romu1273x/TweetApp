@@ -1,0 +1,21 @@
+<div class="main posts-new">
+  <div class="container">
+    <h1 class="form-heading">編集する</h1>
+  </div>
+  <div class="form">
+    <!-- form_tagで以下を囲み、送信先を指定してください -->
+    <%= form_tag("/posts/#{@post.id}/update") do %>
+      <div class="form-body">
+          <!-- @postのエラーが表示されるよう、「〇〇」の部分を書き換えてください -->
+          <% @post.errors.full_messages.each do |message| %>
+            <div class="form-error">
+              <%= message %>
+            </div>
+          <% end %>
+        <!-- <textarea>タグのname属性をcontentに指定してください -->
+        <textarea name="content"><%= @post.content %></textarea>
+        <input type="submit" value="保存">
+      </div>
+    <% end %>
+    </div>
+</div>
